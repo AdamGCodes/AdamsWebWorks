@@ -42,9 +42,6 @@ Built with a React frontend and Django backend (non-CRUD), this project focuses 
 
 ## ✍️ Author
 
-**Adam Gordon**  
+**Adam G**  
 [GitHub](https://github.com/AdamGCodes) | [LinkedIn](https://www.linkedin.com/in/adam-m-g/)
 
----
-
-> This site reflects both technical progression and a personal mission to build tech that includes, supports, and inspires.
