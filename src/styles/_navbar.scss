@@ -1,0 +1,126 @@
+@use './variables' as *;
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: white;
+    color: black;
+    padding: 0.5rem;
+    z-index: 1000;
+    font-weight: bold;
+
+    &:focus {
+        left: 1rem;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: $background;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+
+    a {
+        text-decoration: none;
+        color: $deepBlue;
+        font-size: 1.25rem;
+        font-family: 'Lexend', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+
+        &:hover {
+            border-bottom: 2px solid $brandOrange;
+        }
+
+        &.active {
+            font-weight: bold;
+            color: $brandOrange;
+        }
+    }
+}
+
+.hamburger {
+    display: none;
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: $deepBlue;
+        transition: all 0.3s ease;
+    }
+
+    &.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    &.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    &.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    } }
+
+// Media queries
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 1rem 2rem;
+        z-index: 9;
+        //Background
+        background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); // Safari support
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+        //Add animation
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+            a{
+                font-size: 1.5rem;
+                padding: 0.5rem 0;
+                z-index: 9;
+            }
+        &.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px; // controls space between bars
+        padding: 10px;
+        background: none;
+        border: none;
+    }
+}

@@ -1,0 +1,12 @@
+@use './variables' as *;
+@use './global';
+@use './navbar';
+@use './header';
+@use './hero';
+@use './brand';
+@use './portfolio';
+@use './footer';
+
+html{
+    background-color:$background;
+}

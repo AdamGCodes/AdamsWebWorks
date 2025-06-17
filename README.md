@@ -1,47 +1,12 @@
-# Adam's Web Works
+# React + Vite
 
-A portfolio website showcasing the work, skills, and personal brand of Adam Gordon, a junior software developer with a background in inclusive education and a passion for accessible, meaningful tech.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Project Overview
+Currently, two official plugins are available:
 
-This site is a professional "shop window" designed to:
-- Share key projects and technical skills
-- Communicate personal values and development philosophy
-- Provide potential employers with quick, intuitive access to relevant information
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Built with a React frontend and Django backend (non-CRUD), this project focuses on clean design, accessibility, and code clarity.
+## Expanding the ESLint configuration
 
-## 🌟 Key Features
-
-- Responsive, accessible design with strong keyboard navigation and clear structure
-- Interactive portfolio cards with expanded detail view
-- Skills section with animated toggle
-- Emphasis on clean, maintainable code and original styling
-
-## 🧑‍💻 Tech Stack
-
-- **Frontend**: React, HTML5, CSS3/Sass, JavaScript
-- **Backend**: Django (planned), no database layer
-- **Design**: Figma, custom SVG assets
-- **Hosting**: Netlify or GitHub Pages (to be confirmed)
-
-## 🗂️ Structure
-
-- `/index.html` – Homepage and personal brand
-- `/portfolio.html` – Showcase of recent projects
-- `/skills.html` – Animated list of technical skills
-- `/style.css` – Global and responsive styling
-- `/script.js` – Interactive UI features (vanilla JS)
-
-## 📌 Future Plans
-
-- Replace static HTML with React components
-- Introduce Django views/templates for dynamic structure
-- Automate content updates for portfolio and skills
-- Consider adding a blog or updates section
-
-## ✍️ Author
-
-**Adam G**  
-[GitHub](https://github.com/AdamGCodes) | [LinkedIn](https://www.linkedin.com/in/adam-m-g/)
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
