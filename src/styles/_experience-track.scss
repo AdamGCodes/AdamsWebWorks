@@ -1,0 +1,65 @@
+@use './variables' as *;
+
+.experience-section {
+    padding: 2rem 1rem;
+    background-color: $background;
+    color: $deepBlue;
+
+    .section-title {
+        font-family: 'Lexend', sans-serif;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.experience-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.experience-card {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    background-color: $lightGrey;
+    border: 2px solid $deepBlue;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 3px 3px 10px rgba(1, 56, 70, 0.15);
+    font-family: 'Lexend', sans-serif;
+
+    .timeline-dot {
+        width: 12px;
+        height: 12px;
+        background-color: $brandOrange;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        color: $deepBlue;
+        margin: 0 0 0.5rem;
+    }
+
+    .date {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: darken($deepBlue, 10);
+        margin-bottom: 1rem;
+    }
+
+    .summary {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}

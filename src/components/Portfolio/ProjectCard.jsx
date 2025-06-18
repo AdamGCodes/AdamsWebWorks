@@ -13,9 +13,8 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
 
     return (
         <>
-            <li className="project-tile">
+            <li className={`project-tile ${isOpen ? 'active' : ''}`}>
                 <h3>{title}</h3>
-                <div className='img-wrapper'>
                     <img
                         src={image || '/assets/images/default-thumbnail.png'}
                         alt={`Screenshot of ${title}`}
@@ -24,12 +23,11 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                             e.target.src = '/assets/images/default-thumbnail.png';
                         }}
                     />
-                </div>
                 <button
                     ref={toggleRef}
                     aria-expanded={isOpen}
                     aria-controls={`details-${id}`}
-                    onClick={() => onToggle(id)}
+                    onClick={() => onToggle(isOpen ? null : id)}
                 >
                     Check it out
                 </button>

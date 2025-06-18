@@ -8,16 +8,19 @@ const PortfolioGrid = () => {
     console.log('Loaded projects:', projects);
 
     return (
-        <ul className="portfolio-grid">
-            {projects.map((project) => (
-                <ProjectCard
-                    key={project.id}
-                    project={project}
-                    isOpen={openId === project.id}
-                    onToggle={setOpenId}
-                />
-            ))}
-        </ul>
+        <>
+            <h2>Made with Tech for Humans</h2>
+            <ul className="portfolio-grid">
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={project.id}
+                        project={project}
+                        isOpen={openId === project.id}
+                        onToggle={setOpenId}
+                    />
+                ))}
+            </ul>
+        </>
     );
 };
 
