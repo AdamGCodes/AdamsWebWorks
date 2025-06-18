@@ -4,9 +4,7 @@
 @use './header';
 @use './hero';
 @use './brand';
-@use './portfolio';
+@use './portfolio-grid';
+@use './project-card';
 @use './footer';
-
-html{
-    background-color:$background;
-}
+@use './passion-cards';

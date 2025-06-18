@@ -1,3 +1,5 @@
+import PassionCards from './PassionCards';
+
 function Brand(){
     return(
         <main>
@@ -13,6 +15,8 @@ function Brand(){
                     accessibility and impact. My goal is always the same: 
                 to <strong>make technology work better for people</strong>.
                 </p>
+                <PassionCards/>
+                
         </main>
         
     )

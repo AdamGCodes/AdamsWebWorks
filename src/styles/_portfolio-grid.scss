@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0rem 1.5rem;
+    align-items: start;
+    padding: 1rem;
+    grid-auto-flow: dense;
+    list-style: none;
+    margin: 0; 
+}

@@ -1,5 +1,16 @@
 @use './variables' as *;
 
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+html {
+    background-color: $background;
+    box-sizing: border-box;
+}
 h1 {
     font-family: 'Maven Pro', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
     font-size: 3rem;
