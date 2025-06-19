@@ -1,8 +1,9 @@
 @use './variables' as *;
 
-footer {
-    background-color: #013846;
-    color: white;
-    padding: 2rem;
+.site-footer {
+    padding: 2rem 1rem;
     text-align: center;
-    font-size: 1rem; }
+    font-size: 0.875rem;
+    color: #013846;
+    background: #f7f7f7;
+    border-top: 1px solid #ccc; }

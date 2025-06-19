@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 .project-tile {
-    background-color: $lightGrey;
+    background-color: $lightGray;
     border: 2px solid $deepBlue;
     padding: 1.60rem;
     border-radius: 100rem;
@@ -75,7 +75,7 @@
 
 .fullwidth {
     grid-column: 1 / -1;
-    background-color: $lightGrey;
+    background-color: $lightGray;
     border: 2px solid $deepBlue;
     border-radius: 2rem;
     padding: 2rem;
