@@ -1,54 +1,54 @@
 const projects = [
     {
-        id: 'habit-helper',
-        title: 'HabitHelper',
-        image: 'assets/images/ThumbnailHabitHelpers.jpg',
-        summary: 'A habit tracker with journaling and repeatable tasks.',
-        tools: ['React', 'Django', 'PostgreSQL', 'SCSS'],
-        deployed: 'https://myhabithelper.netlify.app/',
-        readme: 'https://github.com/AdamGCodes/habithelper/blob/main/README.md',
-        repo: 'https://github.com/AdamGCodes/habithelper'
-    },
-    {
-        id: 'top-trumps',
+        id: 'cardtrumps',
         title: 'Card Trumps',
-        image: 'assets/images/ThumbnailCardTrumps.jpg',
-        summary: 'A digital Top Trumps-style card game built in vanilla JavaScript.',
-        tools: ['HTML', 'CSS', 'JavaScript', 'Figma'],
+        summary: 'A digital remake of the classic card game. Players compete against the computer, selecting card categories to win rounds and collect the entire deck. Features animations, category logic, and game flow handling.',
+        image: '/assets/images/ThumbnailCardTrumps.jpg',
+        tools: ['JavaScript', 'HTML', 'CSS'],
         deployed: 'https://adamgcodes.github.io/-js-toptrumps/',
-        readme: 'https://github.com/AdamGCodes/-js-toptrumps/blob/main/README.md',
+        readme: 'https://github.com/AdamGCodes/-js-toptrumps/blob/main/ReadMe.md',
         repo: 'https://github.com/AdamGCodes/-js-toptrumps'
     },
     {
-        id: 'local-heroes',
-        title: 'Local Heroes',
-        image: 'assets/images/ThumbnailLocalHeroes.jpg',
-        summary: 'A community help platform connecting neighbours offering or requesting support.',
-        tools: ['React', 'Express', 'MongoDB', 'Node.js', 'SCSS'],
-        deployed: 'https://local-heroes.netlify.app/',
-        readme: 'https://github.com/AdamGCodes/local-heroes/blob/main/README.md',
-        repo: 'https://github.com/AdamGCodes/local-heroes'
+        id: 'habithelper',
+        title: 'HabitHelper',
+        summary: 'A full-stack habit-tracking app with timers, journaling, and habit to-dos. Built to help users reflect, reset, and build healthier routines. Features user auth, CRUD functionality, and modular SCSS design.',
+        image: '/assets/images/ThumbnailHabitHelper.jpg',
+        tools: ['Django', 'Python', 'React', 'PostgreSQL', 'SCSS'],
+        deployed: 'https://habithelper.netlify.app/',
+        readme: 'https://github.com/AdamGCodes/habithelper-frontend/blob/main/ReadMe.md',
+        repo: 'https://github.com/AdamGCodes/habithelper-frontend'
     },
     {
-        id: 'quality-time',
+        id: 'localheroes',
+        title: 'Local Heroes',
+        summary: 'A MERN stack app connecting people offering and requesting local help. Includes tasks, profiles, and authentication. Designed with comic-style visuals to promote accessibility and positivity.',
+        image: '/assets/images/ThumbnailLocalHeroes.jpg',
+        tools: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+        deployed: 'https://local-heroes.netlify.app/',
+        readme: 'https://github.com/AdamGCodes/local-heroes-frontend/blob/main/ReadMe.md',
+        repo: 'https://github.com/AdamGCodes/local-heroes-frontend'
+    },
+    {
+        id: 'qualitytime',
         title: 'Quality Time',
-        image: 'assets/images/ThumbnailQualityTime.jpg',
-        summary: 'An activity discovery tool for caregivers to find meaningful ways to spend time with children.',
-        tools: ['MongoDB', 'Express', 'Node.js', 'EJS', 'JavaScript'],
-        deployed: 'https://quality-time-app.cyclic.app/',
-        readme: 'https://github.com/AdamGCodes/quality-time/blob/main/README.md',
+        summary: 'A full-stack app for parents and caregivers to find, post, and save activity ideas. Features CRUD for “Sparks” (activities), image upload, user profiles, likes, and comments. Built with accessibility and responsiveness in mind.',
+        image: '/assets/images/ThumbnailQualityTime.jpg',
+        tools: ['MongoDB', 'Express.js', 'Node.js', 'EJS', 'JavaScript'],
+        deployed: '', // Add your Netlify link if hosted
+        readme: 'https://github.com/AdamGCodes/quality-time/blob/main/ReadMe.md',
         repo: 'https://github.com/AdamGCodes/quality-time'
     },
     {
-        id: 'cafe-pos',
-        title: 'Café POS',
-        image: 'assets/images/ThumbnailPos.jpg',
-        summary: 'A terminal-style point-of-sale app for cafés and small businesses.',
-        tools: ['React', 'CSS Grid', 'Flexbox'],
-        deployed: 'https://cafe-pos-react.netlify.app/',
-        readme: 'https://github.com/AdamGCodes/cafe-pos/blob/main/README.md',
-        repo: 'https://github.com/AdamGCodes/cafe-pos'
+        id: 'pos',
+        title: 'POS System',
+        summary: 'A simple Point of Sale system built with just JavaScript, HTML, and CSS. Allows product selection, pricing, and simple cart management logic. Designed for practice with UI interactions and DOM manipulation.',
+        image: '/assets/images/ThumbnailPos.jpg',
+        tools: ['JavaScript', 'HTML', 'CSS'],
+        deployed: '', // Add if deployed
+        readme: '',   // Optional: add if you write one later
+        repo: ''      // Optional: add GitHub link if hosted
     }
 ];
 
-export default projects;
+export default projects;  

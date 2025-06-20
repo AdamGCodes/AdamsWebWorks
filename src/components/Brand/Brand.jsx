@@ -2,7 +2,7 @@ import PassionCards from './PassionCards';
 
 function Brand(){
     return(
-        <main>
+        <main id="brand-section" >
                 <h2>Human-first tech. Purpose-built design.</h2>
 
                 <p>

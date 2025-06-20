@@ -53,7 +53,7 @@ function Hero() {
         );
 
     return (
-        <div className="hero-block">
+        <div id="home" className="hero-block">
             <div className="hero-background">
                 {[...Array(numberOfRows)].map((_, rowIndex) => 
                     generateCogRow(rowIndex, cogsPerRow))}

@@ -1,9 +1,10 @@
 @use './variables' as *;
 
-main{
+#brand-section{
+    display: flex;
+    align-items: center;
     margin-bottom: 2rem;
     h2{
         text-align: center;
     }
-    
 }

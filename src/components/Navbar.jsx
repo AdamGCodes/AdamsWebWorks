@@ -22,10 +22,9 @@ function Navbar() {
         <nav className="navbar" role="navigation" aria-label="Main navigation">
             <a href="#main" className="skip-link">Skip to main content</a>
             <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-                <li><a href="#brand" className="active">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#brand-section" className="active">Home</a></li>
+                <li><a href="#portfolio-section">Portfolio</a></li>
+                <li><a href="#experience-section">Experience</a></li>
             </ul>
             <button
                 className={`hamburger ${isMenuOpen ? 'active' : ''}`}
