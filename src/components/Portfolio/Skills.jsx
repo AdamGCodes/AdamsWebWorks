@@ -1,4 +1,5 @@
 import React from 'react';
+import SkillGrid from './SkillGrid';
 
 const stackSkills = [
     { icon: 'fa-python', label: 'Python', prefix: 'fab' },
@@ -16,6 +17,7 @@ const stackSkills = [
     { icon: 'fa-database', label: 'MongoDB', prefix: 'fas' },
     { icon: 'fa-database', label: 'SQL Server', prefix: 'fas' },
     { icon: 'fa-github', label: 'GitHub', prefix: 'fab' },
+    { icon: 'fa-mug-hot', label: 'Snacks', prefix: 'fas', optional: true },
 ];
 
 const workflowAndMethods = [
@@ -30,9 +32,10 @@ const workflowAndMethods = [
     { icon: 'fa-project-diagram', label: 'Project Management', prefix: 'fas' },
     { icon: 'fa-sync-alt', label: 'Agile', prefix: 'fas' },
     { icon: 'fa-chess-board', label: 'Scrum', prefix: 'fas' },
-    { icon: 'fa-users', label: 'Stakeholder Communication', prefix: 'fas' },
+    { icon: 'fa-users', label: 'Stakeholder Coms', prefix: 'fas' },
     { icon: 'fa-universal-access', label: 'Accessibility-First', prefix: 'fas' },
     { icon: 'fa-user-check', label: 'User-Centred Design', prefix: 'fas' },
+    { icon: 'fa-mug-hot', label: 'More Snacks', prefix: 'fas', optional: true },
 ];
 
 function Skills() {
@@ -40,26 +43,12 @@ function Skills() {
         <section id="skills" className="skills-section">
             <div className="skills-group">
                 <h2>My Stack</h2>
-                <div className="skills-grid">
-                    {stackSkills.map(({ icon, label, prefix }) => (
-                        <div key={label} className="skill-tile">
-                            <i className={`${prefix} ${icon}`} aria-hidden="true" title={label}></i>
-                            <span>{label}</span>
-                        </div>
-                    ))}
-                </div>
+                <SkillGrid data={stackSkills ?? []} />
             </div>
 
             <div className="skills-group">
                 <h2>Workflow Tools & Methods</h2>
-                <div className="skills-grid">
-                    {workflowAndMethods.map(({ icon, label, prefix }) => (
-                        <div key={label} className="skill-tile">
-                            <i className={`${prefix} ${icon}`} aria-hidden="true" title={label}></i>
-                            <span>{label}</span>
-                        </div>
-                    ))}
-                </div>
+                <SkillGrid data={workflowAndMethods ?? []} />
             </div>
         </section>
     );

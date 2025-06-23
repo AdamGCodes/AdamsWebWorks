@@ -1,37 +1,37 @@
 @use './variables' as *;
 
 .skills-section {
-    max-width: 960px;
+    max-width: 1960px;
     margin: 0 auto;
     padding: 3rem 1rem;
     text-align: center;
-    color: #013846;
+    color: $deepBlue;
 
     h2 {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
 
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1.5rem;
-        justify-items: center;
-    
-        // Add subtle staggering effect
-        .skill-tile:nth-of-type(4n+1),
-            .skill-tile:nth-of-type(4n+2) {
-                transform: translateY(6px);
-            }
-        
-            .skill-tile:nth-of-type(4n+3),
-            .skill-tile:nth-of-type(4n+4) {
-                transform: translateY(-6px);
-            }
+    .skills-group {
+        margin-bottom: 4rem;
     }
 
-    .skill-tile {
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .skill-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+        }
+
+        .skill-tile {
             width: 120px;
+            height: 120px;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
             background-color: $lightGray;
@@ -40,31 +40,87 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-align: center;
             padding: 0.5rem;
-            box-shadow: 2px 2px 5px rgba(1, 56, 70, 0.2);
-
-        i {
-            font-size: 2rem;
-            color: #013846;
-            margin-bottom: 0.5rem;
-        }
-
-        span {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 15px rgba(236, 125, 0, 0.4);
-            border-color: #EC7D00;
-            transform: translateY(-4px) rotateZ(-1.5deg);
+            box-shadow: 2px 2px 5px rgba($deepBlue, 0.2);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            will-change: transform, box-shadow;
 
             i {
-                color: #EC7D00;
+                font-size: 2.4rem;
+                color: $deepBlue;
+                margin-bottom: 0.5rem;
+                transition: color 0.3s ease-out;
+            }
+
+            span {
+                font-family: 'Lexend', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: $deepBlue;
+                transition: color 0.3s ease-out;
+            }
+
+            &:hover {
+                transform: translateY(-6px) scale(1.05);
+                box-shadow: 0 10px 20px rgba($brandOrange, 0.35),
+                    0 0 8px rgba($brandOrange, 0.2);
+                transition: transform 0.1s ease-in, box-shadow 0.6s ease-out;
+
+                i {
+                    color: $brandOrange;
+                    transition: color 0.1s ease-in;
+                }
+
+                span {
+                    color: $brandOrange;
+                    transition: color 0.1s ease-in;
+                }
             }
         }
+
+        .placeholder-tile {
+            opacity: 0.15;
+            border-style: dashed;
+            cursor: default;
+
+            &:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: $deepBlue;
+
+                i {
+                    color: $deepBlue;
+                }
+            }
+        }
+    }
+}
+
+/* -------- Responsive Layouts -------- */
+
+@media (max-width: 400px) {
+    .skills-grid .skill-row .skill-tile{
+        width: 160px;
+        height: auto;
+
+        i {
+                font-size: 3rem;
+            }
+        
+            span {
+                font-size: 1.15rem;
+            }
+        }
+    }
+
+@media (max-width: 540px) {
+    .skills-grid .skill-row {
+        align-items: center;
+    }
+
+    .skills-grid .skill-tile {
+        width: 80%;
     }
 }

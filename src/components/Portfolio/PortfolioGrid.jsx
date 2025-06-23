@@ -23,6 +23,7 @@ const PortfolioGrid = () => {
                         />
                     ))}
                 </ul>
+                
                 <Skills/>
             </section>
         </>
