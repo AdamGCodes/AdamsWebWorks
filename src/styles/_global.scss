@@ -11,10 +11,6 @@ html {
     background-color: $background;
     box-sizing: border-box;
 }
-body,
-html {
-    overflow-x: hidden; 
-}
 
 h1 {
     font-family: 'Maven Pro', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
@@ -50,7 +46,3 @@ p{
     font-family: 'Satisfy', 'Brush Script MT', cursive;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-}

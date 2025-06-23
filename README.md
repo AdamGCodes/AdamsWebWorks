@@ -1,41 +1,114 @@
-# React + Vite
+## Project README: Adams Web Works
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio site project! This site was built as a modern, accessible, and performant way to showcase my skills, experience, and personality as a junior developer. Built with a custom React frontend and SCSS styling, the design draws on an industrial aesthetic with playful and animated elements that bring life to the content.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## Expanding the ESLint configuration
+- Responsive layout with accessibility in mind
+- Interactive skills and experience sections
+- Themed animated cog background in hero area
+- Performance-conscious image handling
+- Component-based React architecture
+- Clean and minimal SCSS structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
 
-/*
-README NOTES
-------------
+## 🛠 Technical Notes
 
-🔹 **Expandable Card Chosen for Passion Section**
-The expandable card pattern was selected due to its high accessibility. It allows for clear keyboard navigation, semantic HTML, and screen-reader compatibility, all while providing a clean and flexible layout for presenting the user's core values. It also supports progressive enhancement via animation if desired, without relying on motion to convey meaning.
+### Styling Strategy
+This project uses SCSS for styling, structured around partials and semantic class names. I decided against CSS-in-JS or full CSS Modules for this build to retain simplicity, flexibility, and transparency in the styling layer. SCSS partials helped manage complexity while supporting responsive design, variables, and shared mixins.
 
-🔹 **Cog Background Improvements**
-A major visual and structural improvement in this portfolio is the dynamically generated cog background used in the hero section. The previous implementation relied on numerous hard-coded image elements. This new approach uses JavaScript to programmatically render the cog layout, making it:
-- More responsive to screen size
-- Easier to customise (e.g. number, spacing, layering)
-- Less repetitive and more maintainable
+### Cog Background Improvements
+The animated cog background in the hero section was initially built with lots of individual SVG elements. To reduce performance impact:
+- The number of SVGs was reduced and reused
+- File sizes were optimized with SVGO
+- Animation load was balanced for responsiveness and interactivity
 
-This update improves performance and design consistency while showcasing a more scalable coding approach.
-*/
+---
 
+## 💡 Design Decisions
 
-### 🎨 Styling Approach
+### 🔹 Expandable Card Chosen for Passion Section
+A card that expands inline was chosen to keep the user's place in the scroll flow. This improved accessibility and focus management and gave a more playful, app-like feel. Care was taken to handle keyboard focus, screen readers, and smooth transitions.
 
-This project uses SCSS partials for each component, compiled through a central `main.scss` file. This approach keeps styles modular and maintainable while benefiting from global consistency and fast theming.
+### 🔹 Skills Section Honeycomb Layout
+Instead of using CSS Grid, I switched to flex-based rows of staggered tiles. By alternating between even and odd numbers per row (like 5–4–5–4), I achieved a responsive honeycomb-style layout that looks consistent across screen sizes.
 
-#### ✅ Why this works for this project:
-- Clean separation of concerns without cluttering JSX
-- Easy to scale and update shared styles
-- Fast to prototype and refactor across components
+---
 
-While fully modular systems like CSS Modules or CSS-in-JS were considered, the current setup offers a simpler, more efficient workflow for a personal portfolio. More scoped styling may be introduced in future if project complexity grows.
+## 📸 Things I Learned / Techniques Picked Up
 
+### 🧙 Image Optimization (CLI Tools)
+
+#### 1. **ImageMagick** (for JPG/PNG → WebP)
+I learned to use ImageMagick to reduce the size of my project thumbnails using the `convert` command. This helped improve performance without noticeable loss of quality.
+
+- Resize and convert JPGs/PNGs:
+  ```bash
+  convert my-image.jpg -resize 400x -quality 80 my-image.webp
+  ```
+
+- Batch convert all JPGs and PNGs in a folder:
+  ```bash
+  for img in *.jpg *.png; do
+    [ -e "$img" ] || continue
+    convert "$img" -resize 400x -quality 80 "${img%.*}.webp"
+  done
+  ```
+
+#### 2. **SVGO** (for compressing SVGs)
+I used SVGO to clean up and compress auto-generated SVGs that were used as decorative elements in my hero section. Even though SVGs were small in size, having many of them on the page could hurt performance, and SVGO helped significantly.
+
+- Install globally:
+  ```bash
+  npm install -g svgo
+  ```
+
+- Optimize all SVGs in a folder:
+  ```bash
+  svgo *.svg
+  ```
+
+This reduced SVG file sizes and DOM complexity, improving render performance.
+
+---
+
+## 🧩 Wins and Challenges
+
+### ✅ Wins
+- Learned how to use flex-based row staggering for a honeycomb-style layout without relying on grid.
+- Introduced CLI tools for real image optimization for the first time.
+- Created animated, reusable React components for skills tiles.
+- Implemented smooth hover interactions with balanced transitions.
+- Fine-tuned responsive behavior across several breakpoints.
+
+### ⚠️ Challenges
+- SVG performance hit due to high DOM load from decorative assets.
+- Aspect-ratio control in media queries was more brittle than expected.
+- Needed to fall back to `convert` after discovering `magick` wasn’t available by default on my system.
+- Responsive layout with alternating even/odd rows took careful tweaking to look good at all screen sizes.
+
+---
+
+## 🛠 Tech Stack
+
+- React (Vite)
+- SCSS Partials
+- Font Awesome
+- SVGs + WebP Images
+- CLI Tools: ImageMagick, SVGO
+
+---
+
+## 🔍 Areas to Improve or Explore
+
+- Introduce `srcset` and `<picture>` tags for responsive image loading
+- Possibly reduce or lazy-load decorative cog background
+- Add more animations tied to scroll or interactions
+- Consider motion preferences for reduced motion users
+
+---
+
+Thanks for checking it out!

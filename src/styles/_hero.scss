@@ -99,3 +99,16 @@
     position: relative;
     z-index:2;
 }
+
+
+@media (hover: none),
+(max-width: 768px) {
+    .cog {
+        pointer-events: none;
+
+        &:hover {
+            opacity: initial;
+            transform: none;
+            transition: none;
+        }
+    } }

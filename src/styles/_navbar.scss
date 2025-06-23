@@ -22,15 +22,20 @@ ul {
 }
 
 .navbar {
-    min-height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    background-color: $background;
     position: sticky;
     top: 0;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: $deepBlue;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease-in-out;
+
+    &.navbar--hidden {
+        transform: translateY(-100%);
+    }
 }
 
 .nav-menu {
@@ -39,7 +44,7 @@ ul {
 
     a {
         text-decoration: none;
-        color: $deepBlue;
+        color: $background;
         font-size: 1.25rem;
         font-family: 'Lexend', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 
@@ -56,10 +61,19 @@ ul {
 
 .hamburger {
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
     .bar {
         width: 25px;
         height: 3px;
-        background-color: $deepBlue;
+        background-color: $background;
         transition: all 0.3s ease;
     }
 
@@ -73,44 +87,13 @@ ul {
 
     &.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
-    } }
-
-// Media queries
+    }
+}
 
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        padding: 1rem 2rem;
-        z-index: 9;
-        //Background
-        background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px); // Safari support
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-        //Add animation
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-            a{
-                font-size: 1.5rem;
-                padding: 0.5rem 0;
-                z-index: 9;
-            }
-        &.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: none;
     }
 
     .hamburger {
@@ -118,9 +101,38 @@ ul {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 5px; // controls space between bars
+        gap: 5px;
         padding: 10px;
         background: none;
         border: none;
+        cursor: pointer;
+
+        .bar {
+            background-color: $deepBlue;
+        }
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 1rem;
+        gap: 1rem;
+        z-index: 9;
+        border-bottom: 1px solid $deepBlue;
+
+        &.active {
+            display: flex;
+        }
+
+        a {
+            color: $deepBlue;
+            font-size: 1.25rem;
+        }
     }
 }

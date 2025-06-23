@@ -55,6 +55,7 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                 <h3>{title}</h3>
                 <img
                     src={image || '/assets/images/default-thumbnail.png'}
+                    loading='lazy'
                     alt={`Screenshot of ${title}`}
                     onError={(e) => {
                         e.target.onerror = null;

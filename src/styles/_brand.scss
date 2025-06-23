@@ -1,5 +1,9 @@
 @use './variables' as *;
 
+main {
+    display: flex;
+    flex-direction: column;
+}
 #brand-section{
     display: flex;
     align-items: center;
