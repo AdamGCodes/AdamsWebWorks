@@ -37,7 +37,7 @@ function SkillGrid({ data, allowPlaceholder = true }) {
             const width = window.innerWidth;
             let count;
             
-            if (width < 400)  count = 1;
+            if (width < 400)  count = 2;
             else if (width < 540) count = 2;
             else if (width < 768)  count = 3;
             else if (width < 1024)  count = 4;

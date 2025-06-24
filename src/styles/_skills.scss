@@ -100,20 +100,6 @@
 
 /* -------- Responsive Layouts -------- */
 
-@media (max-width: 400px) {
-    .skills-grid .skill-row .skill-tile{
-        width: 160px;
-        height: auto;
-
-        i {
-                font-size: 3rem;
-            }
-        
-            span {
-                font-size: 1.15rem;
-            }
-        }
-    }
 
 @media (max-width: 540px) {
     .skills-grid .skill-row {
