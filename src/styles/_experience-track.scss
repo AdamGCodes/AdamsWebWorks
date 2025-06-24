@@ -1,5 +1,10 @@
 @use './variables' as *;
 
+.experience-card {
+    content-visibility: auto;
+    contain: layout style paint;
+}
+
 .experience-section.timeline-view {
     padding: 4rem 1rem;
     background: #f7f7f7;

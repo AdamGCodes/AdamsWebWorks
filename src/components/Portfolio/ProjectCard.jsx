@@ -72,66 +72,68 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                 </button>
             </li>
 
-            <li
-                id={`details-${id}`}
-                className={`fullwidth ${isOpen ? 'expanded' : 'is-hidden'}`}
-                ref={fullRef}
-                tabIndex={isOpen ? 0 : -1}
-                aria-hidden={!isOpen}
-            >
-                <div className="project-details">
-                    <button
-                        className="close-button"
-                        onClick={() => {
-                            onToggle(null);
-                            toggleRef.current?.focus();
-                        }}
-                        aria-label="Close"
-                        title="Close"
-                    >
-                        <FontAwesomeIcon icon={faXmark} />
-                    </button>
+            {isOpen && (
+                <li
+                    id={`details-${id}`}
+                    className={`fullwidth ${isOpen ? 'expanded' : 'is-hidden'}`}
+                    ref={fullRef}
+                    tabIndex={isOpen ? 0 : -1}
+                    aria-hidden={!isOpen}
+                >
+                    <div className="project-details">
+                        <button
+                            className="close-button"
+                            onClick={() => {
+                                onToggle(null);
+                                toggleRef.current?.focus();
+                            }}
+                            aria-label="Close"
+                            title="Close"
+                        >
+                            <FontAwesomeIcon icon={faXmark} />
+                        </button>
 
-                    <div className="project-body">
-                        <div className="project-summary">
-                            <h4>Summary</h4>
-                            <p className="summary">{summary}</p>
+                        <div className="project-body">
+                            <div className="project-summary">
+                                <h4>Summary</h4>
+                                <p className="summary">{summary}</p>
+                            </div>
+
+                            {Array.isArray(tools) && tools.length > 0 && (
+                                <div className="tools-used">
+                                    <h4>Tools Used</h4>
+                                    <ul className="tool-list">
+                                        {tools.map((tool) => (
+                                            <li key={tool} className="tool-item">
+                                                <FontAwesomeIcon icon={iconMap[tool] || faCogs} title={tool} />
+                                                <span>{tool}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
 
-                        {Array.isArray(tools) && tools.length > 0 && (
-                            <div className="tools-used">
-                                <h4>Tools Used</h4>
-                                <ul className="tool-list">
-                                    {tools.map((tool) => (
-                                        <li key={tool} className="tool-item">
-                                            <FontAwesomeIcon icon={iconMap[tool] || faCogs} title={tool} />
-                                            <span>{tool}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
+                        <div className="project-links">
+                            {deployed && (
+                                <a href={deployed} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faLink} /> Deployed Site
+                                </a>
+                            )}
+                            {readme && (
+                                <a href={readme} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faBook} /> README
+                                </a>
+                            )}
+                            {repo && (
+                                <a href={repo} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faCodeBranch} /> GitHub Repo
+                                </a>
+                            )}
+                        </div>
                     </div>
-
-                    <div className="project-links">
-                        {deployed && (
-                            <a href={deployed} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faLink} /> Deployed Site
-                            </a>
-                        )}
-                        {readme && (
-                            <a href={readme} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faBook} /> README
-                            </a>
-                        )}
-                        {repo && (
-                            <a href={repo} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faCodeBranch} /> GitHub Repo
-                            </a>
-                        )}
-                    </div>
-                </div>
-            </li>
+                </li>
+            )}
         </>
     );
 };
