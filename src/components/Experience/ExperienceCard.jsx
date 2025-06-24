@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 
@@ -37,7 +37,7 @@ const ExperienceCard = ({ item, index }) => {
         <div className={`experience-item ${alignment}`} ref={ref}>
             <div className="timeline-dot" aria-hidden="true" />
             <div className="timeline-spacer" />
-            <motion.article
+            <motion.li
                 ref={cardRef}
                 className={`experience-card ${expanded ? "expanded" : ""}`}
                 role="listitem"
@@ -50,21 +50,17 @@ const ExperienceCard = ({ item, index }) => {
                 <h3 className="experience-title">{item.title}</h3>
                 <p className="experience-company">{item.company}</p>
 
-                <AnimatePresence initial={false}>
-                    {expanded && (
-                        <motion.div
-                            key="description"
-                            id={`exp-desc-${index}`}
-                            className="experience-description"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                        >
-                            <p>{item.description}</p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {expanded && (
+                    <motion.div
+                        id={`exp-desc-${index}`}
+                        className="experience-description"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                        <p>{item.description}</p>
+                    </motion.div>
+                )}
 
 
                 <button
@@ -90,7 +86,7 @@ const ExperienceCard = ({ item, index }) => {
                 >
                     {expanded ? "Show Less" : "View More"}
                 </button>
-            </motion.article>
+            </motion.li>
         </div>
     );
 };
