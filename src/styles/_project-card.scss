@@ -153,7 +153,8 @@
         .project-links {
             margin-top: 2rem;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 0.75rem;
 
             a {
