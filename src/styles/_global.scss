@@ -16,6 +16,7 @@ h1 {
     font-family: 'Maven Pro', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
     font-size: 3rem;
     color: #013846;
+    font-display: swap;
 }
 
 h2 {
@@ -23,6 +24,8 @@ h2 {
     font-weight: 400;
     color: #013846;
     font-family: 'Maven Pro', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-display: swap;
+
 }
 
 h3 {
@@ -30,6 +33,7 @@ h3 {
     font-weight: 400;
     color: #013846;
     font-family: 'Maven Pro', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-display: swap;
 }
 
 p{
@@ -38,11 +42,12 @@ p{
     line-height: 1.5;
     color: #013846;
     width: 80%;
-    
+    font-display: swap;
 
 }
 
 .flair{
     font-family: 'Satisfy', 'Brush Script MT', cursive;
+    font-display: swap;
 }
 

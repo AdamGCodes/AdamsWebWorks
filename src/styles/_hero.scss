@@ -58,19 +58,30 @@
 .hero-text {
     margin-bottom: 1rem;
     z-index: 2;
-    h1{
+
+    h1 {
         font-size: 4rem;
     }
+
     h2 {
         font-size: 3.5rem;
     }
-    h1, h2{
+
+    h1,
+    h2 {
         margin: 0;
         padding: 0;
-        text-shadow: 2px 2px 5px black;
+        text-shadow: none;
+        transition: text-shadow 0.3s ease-in-out; // optional fade-in
     }
 
-}
+    body.fonts-loaded & {
+
+        h1,
+        h2 {
+            text-shadow: 2px 2px 5px black;
+        }
+    } }
 .hero-socials {
     display: flex;
     justify-content: center;

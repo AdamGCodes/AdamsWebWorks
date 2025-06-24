@@ -47,6 +47,7 @@ function Hero() {
                     src={`/assets/images/${getRandomCog()}`} 
                     alt="" 
                     style={{ width: `${cogSize}px`}}
+                    width="90" height="90"
                     />
             ))}
         </div>
