@@ -54,6 +54,8 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
             <li className={`project-tile ${isOpen ? 'active' : ''}`}>
                 <h3>{title}</h3>
                 <img
+                    width="400"
+                    height="300"
                     src={image || '/assets/images/default-thumbnail.png'}
                     loading='lazy'
                     alt={`Screenshot of ${title}`}
@@ -75,10 +77,8 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
             {isOpen && (
                 <li
                     id={`details-${id}`}
-                    className={`fullwidth ${isOpen ? 'expanded' : 'is-hidden'}`}
+                    className="fullwidth expanded"
                     ref={fullRef}
-                    tabIndex={isOpen ? 0 : -1}
-                    aria-hidden={!isOpen}
                 >
                     <div className="project-details">
                         <button

@@ -6,7 +6,7 @@ const ExperienceTrack = () => {
     return (
         <section id="experience-section" className="experience-section timeline-view">
             <h2 className="section-title">My Journey So Far...</h2>
-            <div className="timeline-container">
+            <div className="timeline-container" role="list">
                 {experienceData.map((item, index) => (
                     <ExperienceCard
                         key={item.id}
