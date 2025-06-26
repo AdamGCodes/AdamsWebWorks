@@ -1,42 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { } from '@fortawesome/free-solid-svg-icons';
-import {
-    faLink,
-    faBook,
-    faCodeBranch,
-    faDatabase,
-    faCogs,
-    faServer,
-    faFileCode,
-    faXmark,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-    faReact,
-    faNodeJs,
-    faJs,
-    faHtml5,
-    faCss3Alt,
-    faPython,
-} from '@fortawesome/free-brands-svg-icons';
-
-
-const iconMap = {
-    JavaScript: faJs,
-    HTML: faHtml5,
-    CSS: faCss3Alt,
-    React: faReact,
-    Node: faNodeJs,
-    'Node.js': faNodeJs,
-    Python: faPython,
-    Django: faServer,
-    SCSS: faFileCode,
-    PostgreSQL: faDatabase,
-    MongoDB: faDatabase,
-    'Express.js': faCogs,
-    Express: faCogs,
-    EJS: faFileCode,
-};
+import { faXmark, faCogs, faLink, faBook, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { iconMap } from '../../Data/skills'; // Import your icon map
 
 const ProjectCard = ({ project, isOpen, onToggle }) => {
     const { id, title, image, summary, tools, deployed, readme, repo } = project;
@@ -57,7 +22,7 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                     width="400"
                     height="300"
                     src={image || '/assets/images/default-thumbnail.png'}
-                    loading='lazy'
+                    loading="lazy"
                     alt={`Screenshot of ${title}`}
                     onError={(e) => {
                         e.target.onerror = null;
@@ -75,11 +40,7 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
             </li>
 
             {isOpen && (
-                <li
-                    id={`details-${id}`}
-                    className="fullwidth expanded"
-                    ref={fullRef}
-                >
+                <li id={`details-${id}`} className="fullwidth expanded" ref={fullRef}>
                     <div className="project-details">
                         <button
                             className="close-button"
@@ -105,7 +66,7 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                                     <ul className="tool-list">
                                         {tools.map((tool) => (
                                             <li key={tool} className="tool-item">
-                                                <FontAwesomeIcon icon={iconMap[tool] || faCogs} title={tool} />
+                                                <FontAwesomeIcon icon={iconMap[tool.toLowerCase()] || faCogs} title={tool} />
                                                 <span>{tool}</span>
                                             </li>
                                         ))}

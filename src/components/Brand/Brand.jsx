@@ -2,7 +2,7 @@ import PassionCards from './PassionCards';
 
 function Brand(){
     return(
-        <main id="brand-section" >
+        <section id="brand-section" >
                 <h2>Human-first tech. Purpose-built design.</h2>
 
                 <p>
@@ -17,7 +17,7 @@ function Brand(){
                 </p>
                 <PassionCards/>
                 
-        </main>
+        </section>
         
     )
 }

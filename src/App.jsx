@@ -15,10 +15,9 @@ function App() {
   }, []);
   
   return (
-    <>
+    <main id="main">
       <Home />
-      {/* <Footer /> */}
-    </>
+    </main>
   );
 }
 

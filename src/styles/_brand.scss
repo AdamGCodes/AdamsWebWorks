@@ -1,13 +1,12 @@
 @use './variables' as *;
 
-main {
+#brand-section{
     display: flex;
     flex-direction: column;
-}
-#brand-section{
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+    scroll-margin-top: 80px;
     h2{
         text-align: center;
     }

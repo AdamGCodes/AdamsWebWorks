@@ -66,7 +66,7 @@ const PassionCards = () => {
                 />
             ),
             title: 'Accessibility',
-            content: 'I design and build with accessibility from the start—writing semantic, inclusive code and crafting user experiences that consider everyone. I also advocate for accessibility in delivery, making sure tools and training support users of all abilities.'
+            content: "I design and build with accessibility in mind from the very beginning. I write semantic, inclusive code and create user experiences that aim to work for everyone. Beyond development, I also advocate for accessibility during delivery, helping ensure that tools and training support users of all abilities."
         },
         {
             icon: (
@@ -78,7 +78,7 @@ const PassionCards = () => {
                 />
             ),
             title: 'Clarity & Function',
-            content: 'Whether I’m coding a feature or supporting an implementation, I focus on clarity. I care about whether users can complete tasks easily, find what they need quickly, and feel confident using the tools I help deliver.'
+            content: "Whether I’m coding a feature or supporting an implementation, I focus on clarity. I care about whether users can complete tasks smoothly, find what they need quickly, and feel confident using the tools I help deliver."
         },
         {
             icon: (
@@ -90,7 +90,7 @@ const PassionCards = () => {
                 />
             ),
             title: 'Impact & Efficiency',
-            content: 'I strive to deliver well-crafted, maintainable code and practical solutions that help people save time, reduce effort, and do more with confidence—whether I’m working behind the scenes or face-to-face with end users.'
+            content: "I strive to deliver well-crafted, maintainable code and practical solutions that help people save time, reduce effort, and do more with confidence. Whether I’m working behind the scenes or face to face with end users, I want my work to feel efficient and empowering."
         },
         {
             icon: (
@@ -102,7 +102,7 @@ const PassionCards = () => {
                 />
             ),
             title: 'Engagement',
-            content: 'Great tech doesn’t just work—it feels good to use. I aim to create experiences that are enjoyable, efficient, and meaningful, whether that’s through polished interfaces, strong onboarding, or empathetic support.'
+            content: "Great tech doesn’t just work. It feels good to use. I aim to create experiences that are enjoyable, efficient, and meaningful, whether through polished interfaces, strong onboarding, or empathetic support."
         }
     ];
 

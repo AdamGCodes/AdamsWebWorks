@@ -37,7 +37,7 @@ function Navbar() {
             <a href="#main" className="skip-link">Skip to main content</a>
 
             <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-                <li><a href="#brand-section" onClick={() => setIsMenuOpen(false)}>Home</a></li>
+                <a href="#brand-section" onClick={() => setIsMenuOpen(false)}>Home</a>
                 <li><a href="#portfolio-section" onClick={() => setIsMenuOpen(false)}>Portfolio</a></li>
                 <li><a href="#experience-section" onClick={() => setIsMenuOpen(false)}>Experience</a></li>
             </ul>
