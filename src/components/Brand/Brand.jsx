@@ -10,7 +10,7 @@ function Brand(){
                     whether that means engineering <strong>user-centered software</strong> with <strong>empathy 
                     and clarity</strong>, or supporting users of all abilities to make the most 
                     of the tools they already have. With a background that blends 
-                <strong>software development, project delivery, and customer success</strong>, 
+                 <strong>software development, project delivery, and customer success</strong>, 
                     I bring both technical know-how and a deep commitment to 
                     accessibility and impact. My goal is always the same: 
                 to <strong>make technology work better for people</strong>.
