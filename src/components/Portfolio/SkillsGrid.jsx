@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { stackSkills, workflowAndMethods } from '../../Data/skills';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Utility to chunk in alternating row lengths (e.g. 5, 4, 5, 4...)
 function chunkAlternating(array, firstRow = 5) {
@@ -73,7 +74,7 @@ function SkillsGrid() {
                         <div className="skill-row" key={rowIdx}>
                             {row.map(({ icon, label, prefix }, i) => (
                                 <div key={`${label}-${rowIdx}-${i}`} className="skill-tile">
-                                    <i className={`${prefix} ${icon}`} title={label}></i>
+                                    <FontAwesomeIcon icon={icon} title={label} size="2x" />
                                     <span>{label}</span>
                                 </div>
                             ))}
