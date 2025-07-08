@@ -1,3 +1,6 @@
+// Brand.jsx
+// Renders the brand section with a personal statement and PassionCards.
+
 import PassionCards from './PassionCards';
 
 function Brand(){

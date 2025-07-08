@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faCogs, faLink, faBook, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { iconMap } from '../../Data/skills'; // Import your icon map
@@ -10,9 +11,37 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
 
     useEffect(() => {
         if (isOpen && fullRef.current) {
-            fullRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Add a small delay to ensure the animation has started
+            setTimeout(() => {
+                fullRef.current.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center',
+                    inline: 'center'
+                });
+            }, 100);
         }
     }, [isOpen]);
+
+    // Animation variants for the expanded content
+    const expandedVariants = {
+        collapsed: { 
+            opacity: 0, 
+            height: 0,
+            y: -20,
+            scale: 0.95
+        },
+        expanded: { 
+            opacity: 1, 
+            height: "auto",
+            y: 0,
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 25
+            }
+        }
+    };
 
     return (
         <>
@@ -39,62 +68,106 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
                 </button>
             </li>
 
-            {isOpen && (
-                <li id={`details-${id}`} className="fullwidth expanded" ref={fullRef}>
-                    <div className="project-details">
-                        <button
-                            className="close-button"
-                            onClick={() => {
-                                onToggle(null);
-                                toggleRef.current?.focus();
-                            }}
-                            aria-label="Close"
-                            title="Close"
-                        >
-                            <FontAwesomeIcon icon={faXmark} />
-                        </button>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.li 
+                        id={`details-${id}`} 
+                        className="fullwidth expanded" 
+                        ref={fullRef}
+                        variants={expandedVariants}
+                        initial="collapsed"
+                        animate="expanded"
+                        exit="collapsed"
+                        style={{ overflow: "hidden" }}
+                    >
+                        <div className="project-details">
+                            <motion.button
+                                className="close-button"
+                                onClick={() => {
+                                    onToggle(null);
+                                    toggleRef.current?.focus();
+                                }}
+                                aria-label="Close"
+                                title="Close"
+                                whileHover={{ 
+                                    scale: 1.1,
+                                    rotate: 90,
+                                    transition: { type: "spring", stiffness: 400, damping: 10 }
+                                }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <FontAwesomeIcon icon={faXmark} />
+                            </motion.button>
 
-                        <div className="project-body">
-                            <div className="project-summary">
-                                <h4>Summary</h4>
-                                <p className="summary">{summary}</p>
+                            <div className="project-body">
+                                <div className="project-summary">
+                                    <h4>Summary</h4>
+                                    <p className="summary">{summary}</p>
+                                </div>
+
+                                {Array.isArray(tools) && tools.length > 0 && (
+                                    <div className="tools-used">
+                                        <h4>Tools Used</h4>
+                                        <ul className="tool-list">
+                                            {tools.map((tool) => (
+                                                <li key={tool} className="tool-item">
+                                                    <FontAwesomeIcon icon={iconMap[tool.toLowerCase()] || faCogs} title={tool} />
+                                                    <span>{tool}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
 
-                            {Array.isArray(tools) && tools.length > 0 && (
-                                <div className="tools-used">
-                                    <h4>Tools Used</h4>
-                                    <ul className="tool-list">
-                                        {tools.map((tool) => (
-                                            <li key={tool} className="tool-item">
-                                                <FontAwesomeIcon icon={iconMap[tool.toLowerCase()] || faCogs} title={tool} />
-                                                <span>{tool}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
+                            <div className="project-links">
+                                {deployed && (
+                                    <motion.a 
+                                        href={deployed} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        whileHover={{ 
+                                            scale: 1.05,
+                                            transition: { type: "spring", stiffness: 400, damping: 10 }
+                                        }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <FontAwesomeIcon icon={faLink} /> Deployed Site
+                                    </motion.a>
+                                )}
+                                {readme && (
+                                    <motion.a 
+                                        href={readme} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        whileHover={{ 
+                                            scale: 1.05,
+                                            transition: { type: "spring", stiffness: 400, damping: 10 }
+                                        }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <FontAwesomeIcon icon={faBook} /> README
+                                    </motion.a>
+                                )}
+                                {repo && (
+                                    <motion.a 
+                                        href={repo} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        whileHover={{ 
+                                            scale: 1.05,
+                                            transition: { type: "spring", stiffness: 400, damping: 10 }
+                                        }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <FontAwesomeIcon icon={faCodeBranch} /> GitHub Repo
+                                    </motion.a>
+                                )}
+                            </div>
                         </div>
-
-                        <div className="project-links">
-                            {deployed && (
-                                <a href={deployed} target="_blank" rel="noopener noreferrer">
-                                    <FontAwesomeIcon icon={faLink} /> Deployed Site
-                                </a>
-                            )}
-                            {readme && (
-                                <a href={readme} target="_blank" rel="noopener noreferrer">
-                                    <FontAwesomeIcon icon={faBook} /> README
-                                </a>
-                            )}
-                            {repo && (
-                                <a href={repo} target="_blank" rel="noopener noreferrer">
-                                    <FontAwesomeIcon icon={faCodeBranch} /> GitHub Repo
-                                </a>
-                            )}
-                        </div>
-                    </div>
-                </li>
-            )}
+                    </motion.li>
+                )}
+            </AnimatePresence>
         </>
     );
 };

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { stackSkills, workflowAndMethods } from '../../Data/skills';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -41,8 +42,55 @@ function insertOptionalToAlternate(data, firstRow) {
     return rows;
 }
 
+// Animation variants
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const rowVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut"
+        }
+    }
+};
+
+const tileVariants = {
+    hidden: { 
+        opacity: 0, 
+        scale: 0.8, 
+        y: 20,
+        rotate: -10
+    },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        rotate: 0,
+        transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.5
+        }
+    }
+};
+
 function SkillsGrid() {
     const [firstRowCount, setFirstRowCount] = useState(5);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     useEffect(() => {
         function updateRowCount() {
@@ -66,38 +114,86 @@ function SkillsGrid() {
     const workflowRows = insertOptionalToAlternate(workflowAndMethods, firstRowCount);
 
     return (
-        <section id="skills" className="skills-section">
-            <div className="skills-group">
+        <section id="skills" className="skills-section" ref={ref}>
+            <motion.div 
+                className="skills-group"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
                 <h2>My Stack</h2>
                 <div className="skills-grid">
                     {stackRows.map((row, rowIdx) => (
-                        <div className="skill-row" key={rowIdx}>
+                        <motion.div 
+                            className="skill-row" 
+                            key={rowIdx}
+                            variants={rowVariants}
+                        >
                             {row.map(({ icon, label, prefix }, i) => (
-                                <div key={`${label}-${rowIdx}-${i}`} className="skill-tile">
+                                <motion.div 
+                                    key={`${label}-${rowIdx}-${i}`} 
+                                    className="skill-tile"
+                                    variants={tileVariants}
+                                    whileHover={{ 
+                                        scale: 1.1,
+                                        y: -8,
+                                        rotate: [0, -5, 5, 0],
+                                        transition: {
+                                            scale: { type: "spring", stiffness: 400, damping: 10 },
+                                            y: { type: "spring", stiffness: 300, damping: 15 },
+                                            rotate: { duration: 0.6, ease: "easeInOut" }
+                                        }
+                                    }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
                                     <FontAwesomeIcon icon={icon} title={label} size="2x" />
                                     <span>{label}</span>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="skills-group">
+            <motion.div 
+                className="skills-group"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
                 <h2>Workflow Tools & Methods</h2>
                 <div className="skills-grid">
                     {workflowRows.map((row, rowIdx) => (
-                        <div className="skill-row" key={rowIdx}>
+                        <motion.div 
+                            className="skill-row" 
+                            key={rowIdx}
+                            variants={rowVariants}
+                        >
                             {row.map(({ icon, label, prefix }, i) => (
-                                <div key={`${label}-${rowIdx}-${i}`} className="skill-tile">
-                                    <i className={`${prefix} ${icon}`} title={label}></i>
+                                <motion.div 
+                                    key={`${label}-${rowIdx}-${i}`} 
+                                    className="skill-tile"
+                                    variants={tileVariants}
+                                    whileHover={{ 
+                                        scale: 1.1,
+                                        y: -8,
+                                        rotate: [0, -5, 5, 0],
+                                        transition: {
+                                            scale: { type: "spring", stiffness: 400, damping: 10 },
+                                            y: { type: "spring", stiffness: 300, damping: 15 },
+                                            rotate: { duration: 0.6, ease: "easeInOut" }
+                                        }
+                                    }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <FontAwesomeIcon icon={icon} title={label} size="2x" />
                                     <span>{label}</span>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

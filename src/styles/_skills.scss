@@ -43,7 +43,6 @@
             text-align: center;
             padding: 0.5rem;
             box-shadow: 2px 2px 5px rgba($deepBlue, 0.2);
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
             will-change: transform, box-shadow;
 
             i {
@@ -62,19 +61,15 @@
             }
 
             &:hover {
-                transform: translateY(-6px) scale(1.05);
                 box-shadow: 0 10px 20px rgba($brandOrange, 0.35),
                     0 0 8px rgba($brandOrange, 0.2);
-                transition: transform 0.1s ease-in, box-shadow 0.6s ease-out;
 
                 i {
                     color: $brandOrange;
-                    transition: color 0.1s ease-in;
                 }
 
                 span {
                     color: $brandOrange;
-                    transition: color 0.1s ease-in;
                 }
             }
         }

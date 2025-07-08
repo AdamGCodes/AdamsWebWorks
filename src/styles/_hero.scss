@@ -36,18 +36,18 @@
     padding: 0.5rem 0;
 }
 
-// .cog {
-//     width: 80px;
-//     height: auto;
-//     z-index: 0;
-//     opacity: 0; //Remove later but handy for testing
-//     transition: opacity 1.5s ease-in-out, transform 0.75s ease-in-out;
-//     &:hover {
-//         opacity: 0.75;
-//         transform: rotate(180deg);
-//         transition: opacity 0.1s ease-in, transform 0.6s ease-in;
-//     }
-// }
+.cog {
+    width: 80px;
+    height: auto;
+    z-index: 0;
+    opacity: 0; //Remove later but handy for testing
+    transition: opacity 1.5s ease-in-out, transform 0.75s ease-in-out;
+    &:hover {
+        opacity: 0.75;
+        transform: rotate(180deg);
+        transition: opacity 0.1s ease-in, transform 0.6s ease-in;
+    }
+}
 
 .hero-content{
     position: relative;
@@ -115,11 +115,11 @@
 @media (hover: none),
 (max-width: 768px) {
     .cog {
-        pointer-events: none;
+        display: none; // Hide desktop cogs on mobile
+    }
 
-        &:hover {
-            opacity: initial;
-            transform: none;
-            transition: none;
-        }
-    } }
+    .mobile-cog {
+        pointer-events: none;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+}
