@@ -1,3 +1,6 @@
+// Footer.jsx
+// Simple site footer with copyright notice.
+
 const Footer = () => {
     return (
         <footer className="site-footer">

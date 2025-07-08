@@ -115,11 +115,11 @@
 @media (hover: none),
 (max-width: 768px) {
     .cog {
-        pointer-events: none;
+        display: none; // Hide desktop cogs on mobile
+    }
 
-        &:hover {
-            opacity: initial;
-            transform: none;
-            transition: none;
-        }
-    } }
+    .mobile-cog {
+        pointer-events: none;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+}
