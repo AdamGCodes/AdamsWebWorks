@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 function useWindowSize() {
     const [size, setSize] = useState({ width: 0, height: 0 });
@@ -36,22 +37,62 @@ function Hero() {
     const cogsPerRow = Math.ceil(width / cogSize);
     const numberOfRows = Math.ceil(height / cogSize);
 
+    // Track hover state for all cogs: { 'row-col': true/false }
+    const [hoveredCogs, setHoveredCogs] = useState({});
+    const handleHoverStart = (rowIndex, colIndex) => {
+        setHoveredCogs(prev => ({ ...prev, [`${rowIndex}-${colIndex}`]: true }));
+    };
+    const handleHoverEnd = (rowIndex, colIndex) => {
+        setHoveredCogs(prev => ({ ...prev, [`${rowIndex}-${colIndex}`]: false }));
+    };
+
+    // Store random cog images for each cog in state
+    const [cogImagesGrid, setCogImagesGrid] = useState([]);
+    useEffect(() => {
+        // Only regenerate when grid size changes
+        const newGrid = [];
+        for (let row = 0; row < numberOfRows; row++) {
+            const rowArr = [];
+            for (let col = 0; col < cogsPerRow; col++) {
+                rowArr.push(getRandomCog());
+            }
+            newGrid.push(rowArr);
+        }
+        setCogImagesGrid(newGrid);
+    }, [numberOfRows, cogsPerRow]);
+
     if (cogsPerRow === 0 || numberOfRows === 0) return null; //Preventing error on initial render
 
     const generateCogRow = (rowIndex, count) => (
-        <div className="cog-row" key={`row-${rowIndex}`}>
+        <div className="cog-row" key={`row-${rowIndex}`}> 
             {[...Array(count)].map((_, colIndex) => (
-                <img 
-                    key={`cog-${rowIndex}-${colIndex}`} 
-                    className="cog" 
-                    src={`/assets/images/${getRandomCog()}`} 
-                    alt="" 
-                    style={{ width: `${cogSize}px`}}
+                <motion.img
+                    key={`cog-${rowIndex}-${colIndex}`}
+                    className="cog"
+                    src={`/assets/images/${cogImagesGrid[rowIndex]?.[colIndex]}`}
+                    alt=""
+                    style={{ width: `${cogSize}px` }}
                     width="90" height="90"
-                    />
+                    animate={{
+                        opacity: hoveredCogs[`${rowIndex}-${colIndex}`] ? 0.75 : 0,
+                        rotate: hoveredCogs[`${rowIndex}-${colIndex}`] ? 180 : 0,
+                    }}
+                    transition={{
+                        opacity: {
+                            duration: hoveredCogs[`${rowIndex}-${colIndex}`] ? 0.1 : 1.5,
+                            ease: 'easeInOut',
+                        },
+                        rotate: {
+                            duration: 0.6,
+                            ease: 'linear',
+                        },
+                    }}
+                    onHoverStart={() => handleHoverStart(rowIndex, colIndex)}
+                    onHoverEnd={() => handleHoverEnd(rowIndex, colIndex)}
+                />
             ))}
         </div>
-        );
+    );
 
     return (
         <div id="home" className="hero-block">
