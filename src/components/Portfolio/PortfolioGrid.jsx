@@ -6,8 +6,6 @@ import Skills from './Skills.jsx';
 const PortfolioGrid = () => {
     const [openId, setOpenId] = useState(null);
 
-    console.log('Loaded projects:', projects);
-
     return (
         <>
             <section id="portfolio-section">

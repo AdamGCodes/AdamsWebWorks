@@ -29,7 +29,8 @@ import {
     faChessBoard,
     faUsers,
     faUniversalAccess,
-    faUserCheck
+    faUserCheck,
+    faWaveSquare
 } from '@fortawesome/free-solid-svg-icons';
 
 // Stack Skills
@@ -49,7 +50,9 @@ export const stackSkills = [
     { icon: faDatabase, label: 'MongoDB' },
     { icon: faDatabase, label: 'SQL Server' },
     { icon: faGithub, label: 'GitHub' },
-    { icon: faMugHot, label: 'Snacks', optional: true }
+    { icon: faMugHot, label: 'Snacks', optional: true },
+    { icon: faCode, label: 'Cursor' },
+    { icon: faWaveSquare, label: 'Framer Motion' }
 ];
 
 // Workflow & Methods

@@ -7,8 +7,10 @@ Welcome to my portfolio site project! This site was built as a modern, accessibl
 ## 🚀 Key Features
 
 * Responsive layout with accessibility in mind
-* Interactive skills and experience sections
-* Themed animated cog background in hero area
+* Interactive skills and experience sections with Framer Motion animations
+* Themed animated cog background in hero area (desktop grid, mobile edge cogs)
+* Smooth hamburger menu animations and mobile navigation
+* Expandable project cards and experience timeline
 * Performance-conscious image handling
 * Component-based React architecture
 * Clean and minimal SCSS structure
@@ -40,6 +42,16 @@ A card that expands inline was chosen to keep the user's place in the scroll flo
 ### 🔹 Skills Section Honeycomb Layout
 
 Instead of using CSS Grid, I switched to flex-based rows of staggered tiles. By alternating between even and odd numbers per row (like 5–4–5–4), I achieved a responsive honeycomb-style layout that looks consistent across screen sizes.
+
+### 🔹 Framer Motion Animation Strategy
+
+Implemented comprehensive animations using Framer Motion for enhanced user experience:
+- **Staggered entrance animations** for skills discs with spring physics
+- **Scroll-responsive animations** for experience timeline and mobile cogs
+- **Interactive hover/tap effects** with smooth transitions
+- **Expandable content animations** for project cards and passion cards
+- **Hamburger menu morphing** with spring-based bar transformations
+- **Mobile-specific cog animations** that respond to scroll direction
 
 ---
 
@@ -121,9 +133,10 @@ These changes made the page more responsive and significantly improved real-worl
 
 ## 🛠 Tech Stack
 
-* React (Vite)
+* React 19 (Vite)
+* Framer Motion (Animations)
 * SCSS Partials
-* Font Awesome
+* Font Awesome Icons
 * SVGs + WebP Images
 * CLI Tools: ImageMagick, SVGO
 
@@ -132,9 +145,10 @@ These changes made the page more responsive and significantly improved real-worl
 ## 🔍 Areas to Improve or Explore
 
 * Introduce `srcset` and `<picture>` tags for responsive image loading
-* Possibly reduce or lazy-load decorative cog background further
-* Add more animations tied to scroll or interactions
-* Consider motion preferences for reduced motion users
+* Add motion preferences for reduced motion users
+* Consider adding more scroll-triggered animations
+* Implement dark mode toggle
+* Add contact form functionality
 
 ---
 
