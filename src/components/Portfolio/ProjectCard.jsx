@@ -71,6 +71,7 @@ const ProjectCard = ({ project, isOpen, onToggle }) => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.li 
+                        key={id}
                         id={`details-${id}`} 
                         className="fullwidth expanded" 
                         ref={fullRef}
